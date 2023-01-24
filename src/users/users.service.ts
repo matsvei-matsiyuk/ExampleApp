@@ -19,7 +19,7 @@ export class UsersService {
   }
 
   async getUserByEmail(email: string) {
-    return await this.usersRepository.findOne({ where: { email: email } });
+    return this.usersRepository.findOne({ where: { email: email } });
   }
 
   async validateUser(email: string, pass: string): Promise<any> {

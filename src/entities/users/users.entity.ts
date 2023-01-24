@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Posts } from '../posts/posts.entity';
 
 @Entity()
 export class Users {
@@ -16,4 +17,7 @@ export class Users {
 
   @Column('varchar')
   lastName: string;
+
+  @OneToMany(() => Posts, (post) => post.user, { cascade: true })
+  posts: Posts[];
 }

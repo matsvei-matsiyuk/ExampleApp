@@ -11,12 +11,12 @@ export class AuthController {
   @Post('/sign-up')
   async signup(@Body() createUserDto: CreateUserDto) {
     await this.authService.signup(createUserDto);
-    return await this.authService.login(createUserDto.email);
+    return this.authService.login(createUserDto.email);
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('/log-in')
   async login(@Body() loginUserDto: LoginUserDto) {
-    return await this.authService.login(loginUserDto.email);
+    return this.authService.login(loginUserDto.email);
   }
 }

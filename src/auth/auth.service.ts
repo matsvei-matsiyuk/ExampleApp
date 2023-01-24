@@ -20,7 +20,7 @@ export class AuthService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    return await this.usersService.createUser(createUserDto);
+    return this.usersService.createUser(createUserDto);
   }
 
   async login(email: string) {
